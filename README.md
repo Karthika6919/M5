@@ -1,3 +1,7 @@
+NAME: KARTHIKA G
+
+REF NO: 212224050017
+
 EX-21-POINTERS
 # AIM:
 Write a C program to convert a 23.65 into 25 using pointer
@@ -9,9 +13,26 @@ Write a C program to convert a 23.65 into 25 using pointer
 4.	Print the modified value.
 
 ## PROGRAM:
+```
+#include <stdio.h>
 
+int main() {
+    double num = 23.65;
+    
+    double *ptr;
+    
+    ptr = &num;
+    
+    *ptr = 25.0;
+    
+    printf("Modified value: %.2f\n", num);
+
+    return 0;
+}
+```
 ## OUTPUT:
  	
+![Screenshot 2025-04-28 141714](https://github.com/user-attachments/assets/5837c1e7-32aa-4329-b850-9c5be5ce81d8)
 
 
 
@@ -45,8 +66,31 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+
+unsigned long long calculateProduct(int n) {
+    if (n == 1) {  
+        return 1;
+    } else {
+        return n * calculateProduct(n - 1);
+    }
+}
+
+int main() {
+    int n = 12;
+    unsigned long long product;
+
+    product = calculateProduct(n);
+
+    printf("Product of first 12 natural numbers = %llu\n", product);
+
+    return 0;
+}
+```
 ## OUTPUT:
-         		
+  ![Screenshot 2025-04-28 141851](https://github.com/user-attachments/assets/0166a46d-d7f6-4869-8411-cbc603adb0ce)
+       		
 ## RESULT:
 
 Thus the program has been executed successfully.
@@ -68,11 +112,35 @@ Write C Program to find Sum of each row of a Matrix
 4.	Print the sum for each row.
 
 ## PROGRAM:
+```
+#include <stdio.h>
 
+int main() {
+    int matrix[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+    
+    int rows = 3, cols = 3;
+    
+    for (int i = 0; i < rows; i++) {
+        int sum = 0; 
+        
+        for (int j = 0; j < cols; j++) {
+            sum += matrix[i][j];
+        }
+        
+        printf("Sum of row %d = %d\n", i + 1, sum);
+    }
+    
+    return 0;
+}
 
-
+```
 ## OUTPUT
 
+![Screenshot 2025-04-28 142006](https://github.com/user-attachments/assets/010796f5-3bbc-4016-a7f8-2c4cfb620b98)
 
  
  
@@ -96,9 +164,40 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 5.	End the program.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+#include <string.h>
 
+int main() {
+    char str[100];
+    int num_rows, i, j, k, midpoint;
 
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    printf("Enter number of rows: ");
+    scanf("%d", &num_rows);
+
+    midpoint = (2 * num_rows - 1) / 2; 
+
+    for (i = 1; i <= num_rows; i++) {
+        
+        for (j = 1; j <= num_rows - i; j++) {
+            printf("  "); 
+        }
+    
+        for (k = 0; k < strlen(str); k++) {
+            printf("%c ", str[k]);
+        }
+        
+        printf("\n");
+    }
+
+    return 0;
+}
+```
  ## OUTPUT
+![Screenshot 2025-04-28 142149](https://github.com/user-attachments/assets/6651ead3-53c4-42e1-9eee-3e169553235c)
 
  
 
@@ -132,8 +231,38 @@ Step 5: Loop from i = 0 to i < n:
 Step 6: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
+int main() {
+    int i, n;
+    int arr[10];
+    int *parr = arr; 
+
+    printf("Enter the number of elements (max 6): ");
+    scanf("%d", &n);
+
+    if (n > 6) {
+        printf("Please enter up to 6 elements only.\n");
+        return 1; 
+    }
+
+    printf("Enter %d integers:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", (parr + i));
+    }
+
+    printf("The array elements are:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", *(parr + i));
+    }
+    printf("\n");
+
+    return 0; 
+}
+```
 ## OUTPUT
+![Screenshot 2025-04-28 142357](https://github.com/user-attachments/assets/429358af-71ac-413d-88e2-e66aa58b0c69)
 
  
 
